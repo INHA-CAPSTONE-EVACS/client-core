@@ -9,6 +9,10 @@ export interface VehicleLocation {
     speedMps: number;
     headingDegrees: number;
     measuredAt: string;
+    /** 주행 중인 차선. 진행방향 기준 가장 오른쪽 차선이 0. 판별 불가한 소스(실제 GPS)에서는 생략한다. */
+    laneIndex?: number;
+    /** 현재 도로의 편도 전체 차선 수. laneIndex는 0 이상 laneCount 미만. */
+    laneCount?: number;
 }
 export interface LocationUpdateDto extends VehicleLocation {
     vehicleId: string;
